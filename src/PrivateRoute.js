@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { isLoggedIn } from './utils/auth';
 
-function PrivateRoute ({component: Component, authToken, exact , ...rest}) {
+function PrivateRoute ({component: Component, authToken = null, exact , ...rest}) {
   
   return (
     <Route

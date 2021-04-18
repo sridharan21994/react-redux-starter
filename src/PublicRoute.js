@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { isLoggedIn } from './utils/auth';
 
-function PublicRoute ({component: Component, authToken, exact , ...rest}) {
+function PublicRoute ({component: Component, authToken = null, exact , ...rest}) {
   
   return (
     <Route

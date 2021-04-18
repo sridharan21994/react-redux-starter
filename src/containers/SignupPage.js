@@ -2,10 +2,10 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { saveAuth } from '../actions/auth';
-import LoginForm from '../components/LoginForm/LoginForm';
+import SignupForm from '../components/SignupForm/SignupForm';
 
 
-const LoginPage = () => {
+const SignupPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -21,9 +21,9 @@ const LoginPage = () => {
     
     return (
         <div>
-            <LoginForm onSubmit={onSubmit} />
+            <SignupForm onSubmit={onSubmit} />
         </div>
     )
 }
 
-export default LoginPage
+export default SignupPage

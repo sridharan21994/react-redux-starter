@@ -10,6 +10,7 @@ import PublicRoute from './PublicRoute';
 
 const PrivateRoute = React.lazy(() => import('./PrivateRoute'))
 const LoginPage = React.lazy(() => import('./containers/LoginPage'))
+const SignupPage = React.lazy(() => import('./containers/SignupPage'))
 const DashboardPage = React.lazy(() => import('./containers/DashboardPage'))
 
 const history = createBrowserHistory()
@@ -18,20 +19,25 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Router history={history}>
+      <Router>
         <Suspense fallback={<Spin size="large" />}>
           <Switch>
             <PublicRoute
               exact
               path="/"
-              component={props => <LoginPage {...props} />}
+              component={(props:any) => <LoginPage {...props} />}
+            />
+            <PublicRoute
+              exact
+              path="/sign-up"
+              component={(props:any) => <SignupPage {...props} />}
             />
             <PrivateRoute
               exact
               path="/dashboard"
-              component={props => <DashboardPage {...props} />}
+              component={(props:any) => <DashboardPage {...props} />}
             />
-            <Route default component={props => <LoginPage {...props} />}/>
+            <Route component={(props:any) => <LoginPage {...props} />}/>
           </Switch>
         </Suspense>
       </Router>
